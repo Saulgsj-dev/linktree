@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Links | Ghrong Gaming</title>
+    <!-- Ícones (FontAwesome) - LINK CORRIGIDO -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Fonte (Poppins) - LINK CORRIGIDO -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #8a2be2;
+            --secondary-color: #4b0082;
+            --accent-color: #00e5ff;
+            --bg-dark: #0a0a0a;
+            --text-color: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1a0b2e);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* CONTAINER PRINCIPAL COM IMAGEM DE FUNDO */
+        .container {
+            width: 100%;
+            max-width: 450px;
+            padding: 2rem;
+            text-align: center;
+            
+            /* === CONFIGURAÇÃO DA IMAGEM DE FUNDO === */
+            background-image: 
+                linear-gradient(rgba(0,0,0,0.6), rgba(20,10,40,0.8)),
+                url('img/fundo-banner.jpg'); /* ← NOME DA SUA IMAGEM AQUI */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* ===================================== */
+            
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 2px solid rgba(138, 43, 226, 0.5);
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(138, 43, 226, 0.4);
+            margin: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .profile-img-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem auto;
+            z-index: 2;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 25px var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover { transform: scale(1.05); }
+
+        .status-dot {
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: #00ff00;
+            border-radius: 50%;
+            border: 3px solid #1a1a1a;
+            box-shadow: 0 0 12px #00ff00;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 12px #00ff00; }
+            50% { box-shadow: 0 0 25px #00ff00, 0 0 40px #00ff00; }
+        }
+
+        /* ÁREA DO JOGO */
+        .game-status {
+            background: rgba(138, 43, 226, 0.25);
+            border: 1px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .game-status::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-color);
+            z-index: 2;
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        .game-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+            font-weight: 800;
+            position: relative;
+            z-index: 3;
+        }
+
+        .game-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-shadow: 0 0 15px rgba(138, 43, 226, 0.9);
+            position: relative;
+            z-index: 3;
+            margin: 5px 0;
+        }
+
+        .game-desc {
+            font-size: 0.85rem;
+            color: #e0e0e0;
+            margin-top: 8px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-btn i {
+            position: absolute;
+            left: 20px;
+            font-size: 1.4rem;
+        }
+
+        .link-btn:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.5);
+        }
+
+        .discord:hover { background: #5865F2; }
+        .youtube:hover { background: #FF0000; }
+        .livepix:hover { background: #00C853; }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(138, 43, 226, 0.4);
+            animation: float 10s infinite linear;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.6; }
+            80% { opacity: 0.6; }
+            100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+        }
+
+        @media (max-width: 380px) {
+            .container { padding: 1.5rem; margin: 10px; }
+            .game-title { font-size: 1.25rem; }
+            .link-btn { font-size: 1rem; padding: 14px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="particles-container"></div>
+
+    <div class="container">
+        <!-- Foto de Perfil -->
+        <div class="profile-img-container">
+            <img src="img/ghronggg.jpg" alt="Ghrong" class="profile-img">
+            <div class="status-dot"></div>
+        </div>
+
+        <!-- Nickname -->
+        <h2 style="margin-bottom: 20px; font-weight: 800; letter-spacing: 1px; position: relative; z-index: 2;">
+            Ghrong <span style="color: var(--accent-color);">⚡</span>
+        </h2>
+
+        <!-- Área do Jogo -->
+        <div class="game-status" id="game-card">
+            <div class="game-label">🎮 Jogando Agora</div>
+            <h3 class="game-title" id="current-game">Carregando...</h3>
+            <p class="game-desc" id="game-desc">Preparando a rotina de hoje!</p>
+        </div>
+
+        <!-- Links - TODOS CORRIGIDOS SEM ESPAÇOS -->
+        <div class="links-list">
+            <a href="https://discord.com/invite/rhfjkZWwwN" target="_blank" class="link-btn discord">
+                <i class="fa-brands fa-discord"></i>
+                Entrar no Discord
+            </a>
+
+            <a href="https://livepix.gg/ghrong" target="_blank" class="link-btn livepix">
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+                Apoie no LivePix
+            </a>
+
+            <a href="https://www.youtube.com/@gronggaming" target="_blank" class="link-btn youtube">
+                <i class="fa-brands fa-youtube"></i>
+                Inscreva-se no Canal
+            </a>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Ghrong Gaming. All rights reserved. 🎮</p>
+        </footer>
+    </div>
+
+    <script>
+        /* === CONFIGURAÇÃO DO JOGO === */
+        const gameData = {
+            title: "Valorant",
+            description: "Grindando para o Imortal hoje! 🔥"
+            // Se quiser mudar o background do card do jogo, use:
+            // background: "img/valorant-card.jpg"
+        };
+
+        const gameTitleEl = document.getElementById('current-game');
+        const gameDescEl = document.getElementById('game-desc');
+        const gameCardEl = document.getElementById('game-card');
+
+        function updateGameSection(data) {
+            gameTitleEl.textContent = data.title;
+            gameDescEl.textContent = data.description;
+            
+            // Se tiver background específico para o card do jogo:
+            if (data.background) {
+                gameCardEl.style.background = `
+                    rgba(138, 43, 226, 0.25),
+                    url('${data.background}') center/cover no-repeat
+                `;
+            }
+        }
+
+        updateGameSection(gameData);
+
+        /* === PARTÍCULAS === */
+        function createParticles() {
+            const container = document.getElementById('particles-container');
+            for (let i = 0; i < 25; i++) {
+                const p = document.createElement('div');
+                p.classList.add('particle');
+                const size = Math.random() * 15 + 3 + 'px';
+                p.style.width = size;
+                p.style.height = size;
+                p.style.left = Math.random() * 100 + 'vw';
+                p.style.animationDuration = Math.random() * 15 + 10 + 's';
+                p.style.animationDelay = Math.random() * 5 + 's';
+                p.style.opacity = Math.random() * 0.5 + 0.2;
+                container.appendChild(p);
+            }
+        }
+        createParticles();
+
+        /* === CLIQUE NOS BOTÕES === */
+        document.querySelectorAll('.link-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => this.style.transform = '', 150);
+            });
+        });
+    </script>
+</body>
+</html>
