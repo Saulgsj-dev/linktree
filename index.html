@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meus Links | Ghrong Gaming</title>
-    <!-- Ícones (FontAwesome) - LINK CORRIGIDO -->
+    <!-- Ícones (FontAwesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Fonte (Poppins) - LINK CORRIGIDO -->
+    <!-- Fonte (Poppins) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
     <style>
@@ -50,11 +50,10 @@
             /* === CONFIGURAÇÃO DA IMAGEM DE FUNDO === */
             background-image: 
                 linear-gradient(rgba(0,0,0,0.6), rgba(20,10,40,0.8)),
-                url('img/fundo-banner.jpg'); /* ← NOME DA SUA IMAGEM AQUI */
+                url('img/fundo-banner.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            /* ===================================== */
             
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
@@ -196,6 +195,7 @@
         .discord:hover { background: #5865F2; }
         .youtube:hover { background: #FF0000; }
         .livepix:hover { background: #00C853; }
+        .roblox:hover { background: #00A2FF; }
 
         footer {
             margin-top: 30px;
@@ -251,8 +251,13 @@
             <p class="game-desc" id="game-desc">Preparando a rotina de hoje!</p>
         </div>
 
-        <!-- Links - TODOS CORRIGIDOS SEM ESPAÇOS -->
+        <!-- Links -->
         <div class="links-list">
+            <a href="https://www.roblox.com/users/grong556/profile" target="_blank" class="link-btn roblox">
+                <i class="fa-solid fa-gamepad"></i>
+                Roblox: grong556
+            </a>
+
             <a href="https://discord.com/invite/rhfjkZWwwN" target="_blank" class="link-btn discord">
                 <i class="fa-brands fa-discord"></i>
                 Entrar no Discord
@@ -277,10 +282,8 @@
     <script>
         /* === CONFIGURAÇÃO DO JOGO === */
         const gameData = {
-            title: "THE STRANGE LIGHTS – As Luzes Estranhas Começaram… 😨👀",
-            description: "Algo está errado… luzes misteriosas aparecem no céu e nada faz sentido. Hoje vamos descobrir o que está por trás de The Strange Lights. Prepare-se para tensão, mistério e muito susto! 🔦⚡"
-            // Se quiser mudar o background do card do jogo, use:
-            // background: "img/valorant-card.jpg"
+            title: "Byte by Night 🌙⚡",
+            description: "Mergulhando no universo de Byte by Night! Código, mistério e aventura em cada linha. Vem acompanhar essa jornada digital comigo! 💻🔦"
         };
 
         const gameTitleEl = document.getElementById('current-game');
@@ -291,7 +294,6 @@
             gameTitleEl.textContent = data.title;
             gameDescEl.textContent = data.description;
             
-            // Se tiver background específico para o card do jogo:
             if (data.background) {
                 gameCardEl.style.background = `
                     rgba(138, 43, 226, 0.25),
